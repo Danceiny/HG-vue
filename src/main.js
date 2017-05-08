@@ -4,6 +4,15 @@ import VueRouter from 'vue-router';
 import Routers from './router';
 import Util from './libs/util';
 import App from './app.vue';
+
+// vuex part
+// import store from './vuex/store'
+// import Vuex from 'vuex'
+
+
+
+// mock.js part 生成随机数据，拦截 Ajax 请求
+
 import 'iview/dist/styles/iview.css';
 
 Vue.use(VueRouter);

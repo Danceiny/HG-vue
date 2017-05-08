@@ -24,9 +24,13 @@ module.exports = {
                         css: ExtractTextPlugin.extract({
                             use: ['css-loader', 'autoprefixer-loader', 'less-loader'],
                             fallback: 'vue-style-loader'
-                        })
-                    }
-                }
+                        }),
+
+                        scss: 'style-loader!css-loader!sass-loader',
+                        sass: 'style-loader!css-loader!sass-loader?indentedSyntax',
+
+                    },
+                },
             },
             {
                 test: /iview\/.*?js$/,
@@ -58,6 +62,11 @@ module.exports = {
             {
                 test: /\.(html|tpl)$/,
                 loader: 'html-loader'
+            },
+            // SASS
+            {
+                test: /\.scss$/,
+                loader: 'style!css!sass'
             }
         ]
     },
@@ -67,4 +76,5 @@ module.exports = {
             'vue': 'vue/dist/vue.esm.js'
         }
     }
-};
+}
+;
