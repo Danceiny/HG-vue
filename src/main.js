@@ -1,34 +1,42 @@
-import Vue from 'vue';
-import iView from 'iview';
-import VueRouter from 'vue-router';
-import Routers from './router';
-import Util from './libs/util';
-import App from './app.vue';
+import Vue from "vue";
+import iView from "iview";
+import VueRouter from "vue-router";
+import Routers from "./router";
+import Util from "./libs/util";
+import App from "./app.vue";
+import "iview/dist/styles/iview.css";
+import 'font-awesome/css/font-awesome.min.css'
 
-// vuex part
-// import store from './vuex/store'
-// import Vuex from 'vuex'
-
-
-
-// mock.js part 生成随机数据，拦截 Ajax 请求
-
-import 'iview/dist/styles/iview.css';
 
 Vue.use(VueRouter);
 Vue.use(iView);
 
 // 路由配置
-const RouterConfig = {
-    mode: 'history',
-    routes: Routers
-};
-const router = new VueRouter(RouterConfig);
+// const RouterConfig = {
+//     mode: 'history',
+//     routes: Routers
+// };
+// const router = new VueRouter(RouterConfig);
+
+const router = new VueRouter({
+    Routers
+})
 
 router.beforeEach((to, from, next) => {
     iView.LoadingBar.start();
-    Util.title(to.meta.title);
-    next();
+    // Util.title(to.meta.title);
+    // next();
+
+    if (to.path == '/login') {
+        sessionStorage.removeItem('user');
+    }
+    let user = JSON.parse(sessionStorage.getItem('user'));
+    if (!user && to.path != '/login') {
+        next({path: '/login'})
+    } else {
+        next()
+    }
+
 });
 
 router.afterEach((to, from, next) => {
