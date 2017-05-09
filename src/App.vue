@@ -36,7 +36,7 @@
 <script>
     export default {
         name: 'app',
-        components: {}
+//        components: {}
     }
 
 </script>
@@ -74,12 +74,11 @@
         padding: 10px;
         /*border: 1 px solid #dfe6ec;*/
         margin: 10px 0px;
-
+    }
     .el-form-item {
         margin-bottom: 10px;
     }
 
-    }
 
     .fade-enter-active,
     .fade-leave-active {
