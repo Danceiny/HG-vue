@@ -10,42 +10,50 @@
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
                         <span class="layout-text">关于</span>
                     </Menu-item>
-                    <Menu-item name="config">
+                    <Menu-item name="config-manager">
                         <Icon type="ios-navigate" :size="iconSize"></Icon>
                         <span class="layout-text">配置管理</span>
                     </Menu-item>
-                    <Menu-item name="form">
-                        <Icon type="document" :size="iconSize"></Icon>
-                        <span class="layout-text">表单</span>
+                    <Menu-item name="config-detail">
+                        <Icon type="ios-navigate" :size="iconSize"></Icon>
+                        <span class="layout-text">配置详情</span>
                     </Menu-item>
-                    <Menu-item name="table">
-                        <Icon type="navicon" :size="iconSize"></Icon>
-                        <span class="layout-text">表格</span>
+                    <Menu-item name="config-modify">
+                        <Icon type="ios-navigate" :size="iconSize"></Icon>
+                        <span class="layout-text">修改配置</span>
                     </Menu-item>
-                    <Menu-item name="markdown-viewer">
-                        <Icon type="social-markdown" :size="iconSize"></Icon>
-                        <span class="layout-text">Markdown</span>
-                    </Menu-item>
-                    <Menu-item name="markdown-editor-1">
-                        <Icon type="edit" :size="iconSize"></Icon>
-                        <span class="layout-text">Md编辑器(1)</span>
-                    </Menu-item>
-                    <Menu-item name="markdown-editor-2">
-                        <Icon type="edit" :size="iconSize"></Icon>
-                        <span class="layout-text">Md编辑器(2)</span>
-                    </Menu-item>
-                    <Menu-item name="rtf">
-                        <Icon type="document-text" :size="iconSize"></Icon>
-                        <span class="layout-text">富文本框</span>
-                    </Menu-item>
-                    <Menu-item name="upload">
-                        <Icon type="ios-cloud-upload-outline" :size="iconSize"></Icon>
-                        <span class="layout-text">文件上传</span>
-                    </Menu-item>
-                    <Menu-item name="echarts">
-                        <Icon type="pie-graph" :size="iconSize"></Icon>
-                        <span class="layout-text">图表(Echarts)</span>
-                    </Menu-item>
+                    <!--<Menu-item name="form">-->
+                        <!--<Icon type="document" :size="iconSize"></Icon>-->
+                        <!--<span class="layout-text">表单</span>-->
+                    <!--</Menu-item>-->
+                    <!--<Menu-item name="table">-->
+                        <!--<Icon type="navicon" :size="iconSize"></Icon>-->
+                        <!--<span class="layout-text">表格</span>-->
+                    <!--</Menu-item>-->
+                    <!--<Menu-item name="markdown-viewer">-->
+                        <!--<Icon type="social-markdown" :size="iconSize"></Icon>-->
+                        <!--<span class="layout-text">Markdown</span>-->
+                    <!--</Menu-item>-->
+                    <!--<Menu-item name="markdown-editor-1">-->
+                        <!--<Icon type="edit" :size="iconSize"></Icon>-->
+                        <!--<span class="layout-text">Md编辑器(1)</span>-->
+                    <!--</Menu-item>-->
+                    <!--<Menu-item name="markdown-editor-2">-->
+                        <!--<Icon type="edit" :size="iconSize"></Icon>-->
+                        <!--<span class="layout-text">Md编辑器(2)</span>-->
+                    <!--</Menu-item>-->
+                    <!--<Menu-item name="rtf">-->
+                        <!--<Icon type="document-text" :size="iconSize"></Icon>-->
+                        <!--<span class="layout-text">富文本框</span>-->
+                    <!--</Menu-item>-->
+                    <!--<Menu-item name="upload">-->
+                        <!--<Icon type="ios-cloud-upload-outline" :size="iconSize"></Icon>-->
+                        <!--<span class="layout-text">文件上传</span>-->
+                    <!--</Menu-item>-->
+                    <!--<Menu-item name="echarts">-->
+                        <!--<Icon type="pie-graph" :size="iconSize"></Icon>-->
+                        <!--<span class="layout-text">图表(Echarts)</span>-->
+                    <!--</Menu-item>-->
                 </Menu>
             </i-col>
             <i-col :span="spanRight">

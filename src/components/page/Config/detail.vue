@@ -1,22 +1,42 @@
 <template>
-    <Table height="200" :columns="columns1" :data="data2"></Table>
+    <Table height="200" :columns="columns" :data="data2"></Table>
 </template>
 <script>
     export default {
         data () {
             return {
-                columns1: [
+                columns: [
                     {
-                        title: '姓名',
-                        key: 'name'
+                        title: '编号',
+                        key: 'id'
                     },
                     {
-                        title: '年龄',
-                        key: 'age'
+                        title: 'File',
+                        key: 'file'
                     },
                     {
-                        title: '地址',
-                        key: 'address'
+                        title: 'Section',
+                        key: 'section'
+                    },
+                    {
+                        title: 'Key',
+                        key: 'key'
+                    },
+                    {
+                        title: 'Vulue',
+                        key: 'value'
+                    },
+                    {
+                        title: '备注',
+                        key: 'notes'
+                    },
+                    {
+                        title: '类型',
+                        key: 'type'
+                    },
+                    {
+                        title: '操作',
+                        key: 'operation'
                     }
                 ],
                 data2: [
@@ -62,6 +82,6 @@
                     }
                 ]
             }
-        }
+        },
     }
 </script>
