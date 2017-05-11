@@ -37,6 +37,10 @@ export default new Router({
                     {
                         path: '/config-modify',
                         component: resolve => require(['./components/page/Config/modify.vue'], resolve)
+                    },
+                    {
+                        path: '/testlib-manager',
+                        component: resolve => require(['./components/page/TestLib/manager.vue'], resolve)
                     }
             // {
             //     path: '/markdown-viewer',
