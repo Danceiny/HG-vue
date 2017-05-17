@@ -1,10 +1,17 @@
 <template>
     <div>
         <div>
-            <Tree :data="SMSCenter" show-checkbox ref="SMSCenter" on-check-change="goToDetails()">
+            <Tree
+                    :data="baseData"
+                    show-checkbox
+                    on-select-change="goToSelect"
+                    on-check-change="goToDetail"
+                    :render-content="renderContent"
+                    ref="childMethod"
+            >
 
             </Tree>
-            <Button type="text" @click.native="goToDetails('SMSCenter')">查看详情</Button>
+            <Button type="text" @click.native="goToDetail('SMSCenter')">查看详情</Button>
 
             <Tree :data="ApplyCenter" show-checkbox ref="ApplyCenter"></Tree>
             <!--<Tree :data="Center" show-checkbox></Tree>-->
@@ -14,7 +21,7 @@
             <!--<Button type="primary">Primary</Button>-->
             <!--<Button type="ghost">Ghost</Button>-->
             <!--<Button type="dashed">Dashed</Button>-->
-            <Button type="text" @click.native="goToDetails">查看详情</Button>
+            <Button type="text" @click.native="goToDetail">查看详情</Button>
             <!--<br><br>-->
             <!--<Button type="info">信息按钮</Button>-->
             <!--<Button type="success">成功按钮</Button>-->
@@ -40,7 +47,7 @@
                             title: 'leaf',
                             disableCheckbox: true
                         }, {
-                            title: 'leaf',
+                            title: '<div><span style="color: red">leaf</span><Button type="ghost">Modify</Button> </div>',
                         }]
                     }, {
                         title: 'parent 1-1',
@@ -73,15 +80,34 @@
         },
 
         methods: {
-
-            goToDetails(tree){
-                let node = self.$refs[tree].getSelectedNodes();
-                console.log(node);
+              renderContent(h, { node, data, store }) {
+                return (
+                  <span>
+                    <span>
+                      <span>{node.label}</span>
+                    </span>
+                    <span style="float: right; margin-right: 20px">
+                      <Button size="mini" on-click={ () => this.append(store, data) }>Append</Button>
+                      <Button size="mini" on-click={ () => this.remove(store, data) }>Delete</Button>
+                    </span>
+                  </span>);
+              },
+            goToDetail(tree){
+//TODO
+                var checkedNodes = this.$refs.childMethod.getCheckedNodes();
+                console.log('------------',tree);
+                console.log('------------',checkedNodes);
+            },
+            goToSelect(tree){
+//TODO
+                var selectedNodes = this.$refs.childMethod.getSelectedNodes();
+                console.log('------------',tree);
+                console.log('------------',selectedNodes);
             }
         },
 
-        created: function () {
-            //TODO: get config data from ip:port/getconfig/
+        mounted: function () {
+            //TODO: get config data from ip:port/config/
 
 
             //TODO: store config data to window.localstorage, setItem('config',CONFIGDATA)

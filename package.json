@@ -22,6 +22,7 @@
     "iview": "^2.0.0-rc.8",
     "nprogress": "^0.2.0",
     "vue": "^2.2.6",
+    "vue-datatable": "^1.0.4",
     "vue-localstorage": "^0.2.0",
     "vue-router": "^2.2.1",
     "vuex": "^2.0.0-rc.6"
@@ -64,5 +65,12 @@
     "url": "https://github.com/Danceiny/iview-admin/issues"
   },
   "homepage": "https://blog.cannot.cc/iview-admin/",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": [
+    "iview",
+    "admin",
+    "manage",
+    "system",
+    "flask"
+  ]
 }

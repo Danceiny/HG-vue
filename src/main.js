@@ -7,12 +7,11 @@ import Util from "./libs/util";
 import App from "./App.vue";
 import "iview/dist/styles/iview.css";
 import "font-awesome/css/font-awesome.min.css";
-
-
+// import DataTable from "vue-datatable"
 Vue.use(iView);
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
-
+// Vue.use(DataTable);
 // 路由配置
 // const RouterConfig = {
 //     mode: 'history',

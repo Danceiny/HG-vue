@@ -1,12 +1,14 @@
 <template>
     <div id="detail">
-        <Table height="200" :columns="columns" :data="data2"></Table>
+        <Table height="200" :columns="columns" :data="configData" ref="configData"></Table>
     </div>
 </template>
 <script>
+    import {getConfigById} from '../../..//api/api';
     export default {
         data () {
             return {
+                configData: [],
                 columns: [
                     {
                         title: '编号',
@@ -39,58 +41,14 @@
                     {
                         title: '操作',
                         key: 'operation',
+//                        width: 150,
+                        align: 'center',
                         render (row, column, index) {
                             return `<i-button type="primary" size="small" @click="modify(${index})">修改</i-button> <i-button type="primary" size="small" @click="show(${index})">查看</i-button> <i-button type="error" size="small" @click="remove(${index})">删除</i-button>`;
                         }
                     }
                 ],
-                data2: [
-                    {
-                        id: 1,
-                        file: '王小明',
-                        section: 18,
-                        key: 'key',
-                        value: 'value',
-                        notes: '北京市朝阳区芍药居',
-                        operation: 'modify',
-                        type: 'string'
-                    },
-                    {
-                        name: '张小刚',
-                        age: 25,
-                        address: '北京市海淀区西二旗'
-                    },
-                    {
-                        name: '李小红',
-                        age: 30,
-                        address: '上海市浦东新区世纪大道'
-                    },
-                    {
-                        name: '周小伟',
-                        age: 26,
-                        address: '深圳市南山区深南大道'
-                    },
-                    {
-                        name: '王小明',
-                        age: 18,
-                        address: '北京市朝阳区芍药居'
-                    },
-                    {
-                        name: '张小刚',
-                        age: 25,
-                        address: '北京市海淀区西二旗'
-                    },
-                    {
-                        name: '李小红',
-                        age: 30,
-                        address: '上海市浦东新区世纪大道'
-                    },
-                    {
-                        name: '周小伟',
-                        age: 26,
-                        address: '深圳市南山区深南大道'
-                    }
-                ]
+
             }
         },
         methods: {
@@ -112,13 +70,61 @@
                 this.$localStorage.setItem('detail', `${this.data2[index]}`);
                 this.$router.push('/config-modify');
             },
+
+            fetchData(){
+                //TODO: request detail by GET id from ip:port/getconfig?id=ID
+                //TODO: process the response data, and rendor it to the detail table.
+                //TODO: store it to window.localstorage
+                var configId = 1;
+                //configId = window.localStorage.getItem('detail')['id'];
+
+
+                var _this = this;
+                // Ajax request
+                var req = new XMLHttpRequest();
+                var server = "http://localhost:8090/";
+                var url = server + "config/" + configId;
+                console.log(url);
+                req.open('GET', url);
+//            req.setRequestHeader("Access-Control-Allow-Origin", "http://127.0.0.1:8080/");
+                req.send(null);
+
+                var data = {};
+                req.onreadystatechange = function () {
+                    if (req.readyState == 4 && req.status == 200) {
+                        data = JSON.parse(req.responseText);
+                        console.log('///////////////////////request data from server///////////////////', data);
+                        console.log('///////////////////////request data from server///////////////////', _this);
+//                        for (var i in data) {
+//                            _this.configData.push(i);
+//                        }
+                        _this.configData = data;
+                    }
+                };
+
+
+//                //axios
+//                // Make a request for a user with a given ID
+//                getConfigById(configId).then(function (response) {
+//                        data = JSON.parse(response);
+//                        console.log('//////////', data);
+//                        console.log('//////////', this);
+//                        this.configData[0] = data;
+//                        console.log(response);
+//                    })
+//                    .catch(function (error) {
+//                        console.log(error);
+//                    });
+
+            }
         },
-        created: function () {
-            //TODO: request detail by GET id from ip:port/getconfig?id=ID
-            //TODO: process the response data, and rendor it to the detail table.
-            //TODO: store it to window.localstorage
+        mounted: function () {
+            this.fetchData();
+        },
+        computed: {
+            compData: function () {
 
-
+            }
         }
     }
 </script>

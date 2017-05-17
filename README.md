@@ -50,7 +50,7 @@
 - [x] iView： [iView2.0](https://github.com/iview/iview)
 - [x] Vuex： [Vuex2.x](http://vuex.vuejs.org/zh-cn/intro.html)
 - [x] vue-localstorage: [vue-localStorage](https://www.npmjs.com/package/vue-localstorage)
-
+- [x] vue-datatable: `npm install --save vue-datatable`
 
 # 引用
 - [localstorage](https://www.npmjs.com/package/vue-localstorage)
